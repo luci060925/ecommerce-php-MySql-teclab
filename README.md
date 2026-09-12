@@ -1,126 +1,54 @@
-# eCommerce Teclab 🛒
+# eCommerce Teclab
 
-Final project for the Teclab course (2026).  
-A PHP + MySQL web application to **manage and display a hardware product catalog**, organized by categories and rendered dynamically.
+> PHP + MySQL product catalog with MVC-inspired architecture, PDO prepared statements, and AJAX dynamic loading.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Database](#database)
-- [Setup & Installation](#setup--installation)
-- [Usage](#usage)
-- [Security Notes](#security-notes)
-- [Author](#author)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
----
+> Proyecto final — Teclab, Tecnicatura Superior en Programación (2026).
 
-## Overview
-This project implements a modular structure inspired by **MVC**, using **OOP** and **PDO** to keep the code clean, reusable, and safe for database operations.
+## Sobre el proyecto
 
----
+Catálogo de productos de hardware construido con PHP y MySQL, organizado por categorías y renderizado dinámicamente. Usa PDO con prepared statements en todo el proyecto y una estructura modular inspirada en MVC.
 
-## Features
-- **Product Catalog**: Dynamic hardware listing (CPU, GPU, RAM, etc.).
-- **Categories**: Products linked via `categoria_id` for organized browsing.
-- **Responsive UI**: Works smoothly on mobile and desktop.
-- **OOP Codebase**: Separation of concerns and reusable classes.
-- **Single-query listing**: Products + category name via `LEFT JOIN`.
+## Funcionalidades
 
----
+- **Catálogo de productos** — listado dinámico de hardware (CPU, GPU, RAM, etc.).
+- **Categorías** — productos vinculados por `categoria_id`.
+- **OOP** — clases reutilizables, separación de responsabilidades.
+- **Consulta con JOIN** — productos + nombre de categoría en una sola query (`LEFT JOIN`).
+- **AJAX** — carga dinámica de contenido sin recargas de página.
+- **UI responsive** — funciona en móvil y escritorio.
 
-## Tech Stack
-- **Backend**: PHP (OOP) + PDO
-- **Database**: MySQL
-- **Frontend**: HTML + CSS
-- **Async**: AJAX (for dynamic content loading)
+## Estructura
 
----
-
-## Architecture
-MVC-inspired modular design:
-
-- **Models (`/class`)**  
-  Business logic and database access (`database.php`, `productos.php`, `categorias.php`).
-
-- **Controllers (`/backend`)**  
-  Request handlers (AJAX endpoints) that call model methods and return results.
-
-- **Views (`/views`)**  
-  UI templates and rendering logic.
-
-- **Entry point (`index.php`)**  
-  Main router / content loader for the frontend.
-
----
-
-## Project Structure
 ```
-/assets     -> CSS styles + product images
-/backend    -> PHP endpoints for actions (products/categories)
-/class      -> Core classes (database, productos, categorias, autoload)
-/views      -> Frontend templates
-index.php   -> Main entry point
+ecommerce-php-MySql-teclab/
+├── index.php        Router principal
+├── /assets          Estilos CSS + imágenes de productos
+├── /backend         Handlers PHP para peticiones AJAX
+├── /class           Clases principales (database, productos, categorias, autoload)
+└── /views           Templates del frontend
 ```
 
----
+## Instalación
 
-## Database
-The app uses **PDO + prepared statements** to reduce SQL Injection risk.
+**Requisitos:** PHP 8.x, MySQL 5.7+/8.x, Apache (XAMPP/Laragon).
 
-### Key concepts
-- Products reference categories using `categoria_id`.
-- Product listing uses `LEFT JOIN` to fetch category names in the same query:
-  - `listarConCategorias()` returns `p.*` + `categoria_nombre`.
-
----
-
-## Setup & Installation
-
-### Requirements
-- PHP 8.x (recommended)
-- MySQL 5.7+ / 8.x
-- Apache (XAMPP/Laragon) or similar local server
-
-### 1) Clone repository
 ```bash
-git clone https://github.com/<your-username>/ecommerce-php-MySql-teclab.git
+git clone https://github.com/luci060925/ecommerce-php-MySql-teclab.git
 ```
 
-### 2) Create the database
-Create a MySQL database named `miproyecto` (e.g. via phpMyAdmin or the MySQL CLI).
-
-### 3) Import SQL
-Import the included `miproyecto.sql` file, which creates the `categorias` and `productos` tables:
-```bash
-mysql -u root -p miproyecto < miproyecto.sql
-```
-
-### 4) Configure connection
-Connection settings live in [`class/database.php`](class/database.php). Defaults match a typical local XAMPP/Laragon setup (`host=localhost`, `user=root`, no password). Update them if your environment differs.
+1. Crear base de datos MySQL llamada `miproyecto`.
+2. Importar el esquema:
+   ```bash
+   mysql -u root -p miproyecto < miproyecto.sql
+   ```
+3. Verificar la configuración en `class/database.php` (por defecto: `host=localhost`, `user=root`, sin contraseña — compatible con XAMPP estándar).
+4. Abrir `http://localhost/ecommerce-php-MySql-teclab/`.
 
 ---
 
-## Usage
-
-* Start your local server (Apache + MySQL).
-* Open the project in your browser:
-
-  * `http://localhost/<project-folder>/`
-
----
-
-## Security Notes
-
-* Database access via **PDO prepared statements**.
-* Avoid committing secrets: if you change `class/database.php` to use real credentials, keep them out of version control (e.g. via environment variables or a local, git-ignored config file).
-
----
-
-## Author
-
-**Luciana Mansilla**
-Final Project — Teclab — 2026
-
+**Luciana Mansilla** · [LinkedIn](https://www.linkedin.com/in/luciana-mansilla-854bb5419/) · [GitHub](https://github.com/luci060925)
