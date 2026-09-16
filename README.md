@@ -19,15 +19,15 @@ Catálogo de productos de hardware construido con PHP y MySQL, organizado por ca
 - **Categorías** — productos vinculados por `categoria_id`.
 - **OOP** — clases reutilizables, separación de responsabilidades.
 - **Consulta con JOIN** — productos + nombre de categoría en una sola query (`LEFT JOIN`).
-- **AJAX** — carga dinámica de contenido sin recargas de página.
-- **UI responsive** — funciona en móvil y escritorio.
+- **AJAX (jQuery)** — carga dinámica de contenido sin recargas de página.
+- **UI responsive** — grilla de Bootstrap 5, funciona en móvil y escritorio.
 
 ## Estructura
 
 ```
 ecommerce-php-MySql-teclab/
 ├── index.php        Router principal
-├── /assets          Estilos CSS + imágenes de productos
+├── /assets          Estilos CSS, scripts JS e imágenes de productos
 ├── /backend         Handlers PHP para peticiones AJAX
 ├── /class           Clases principales (database, productos, categorias, autoload)
 └── /views           Templates del frontend
